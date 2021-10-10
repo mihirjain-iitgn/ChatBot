@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html>
+	<title>Chatbot</title>
+	<head>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+	</head>
+	<style>
+		.container{
+			width: 30%;
+			margin: auto;
+			background: rgb(3, 196, 202);
+			border-radius: 10px 10px;
+			padding: 10px;
+			
+			border: 2px solid gray;
+		}
+		h2{
+			margin: 0;
+			font-family: Arial, Helvetica, sans-serif;
+			/* border-bottom: 2px solid black; */
+			width: fit-content;
+			color: black;
+		}
+		.chats{
+			padding: 0 12px;
+			margin: auto;
+			width: 80%;
+			height: 400px;
+			overflow-y: scroll;
+			/* border: 2px solid blue; */
+		}
+		#chat_window{
+			width: 100%;
+			margin: auto;
+			display: flex;
+			flex-direction: column;
+		}
+		#Input{
+			width: 100%;
+			/* border: 2px solid green; */
+		}
+		#Input_box{
+			width: 95%;
+		}
+		input{
+			font-size: 15px;
+		}
+		.chat-text{
+			font-family:Arial, Helvetica, sans-serif;
+			width: fit-content;
+			max-width: 60%;
+			word-break: break-all;
+			white-space: normal;
+			padding: 5px;
+			font-weight: 500;
+			font-size: 15px;
+			margin: 5px 0;
+		}
+		.user{
+			background:rgb(219, 217, 217);
+			align-self: flex-end;
+			position: relative;
+			text-align: left;
+			color: black;
+			border-radius: 5px 5px 0 5px;
+			box-shadow: 2px 2px 2px 0px rgb(165, 163, 163);
+		}
+
+		.bot{
+			/* background: linear-gradient(to Right, #de6262,#ffb88c); */
+			background: rgb(236, 157, 29);
+			margin-left:0;
+			text-align: left;
+			border-radius: 5px 5px 5px 0;
+			box-shadow: -2px 2px 2px 0px rgb(236, 157, 29);
+		}
+				::-webkit-scrollbar {
+		width: 5px;
+		}
+		::-webkit-scrollbar-track {
+		background: transparent; 
+		}
+		::-webkit-scrollbar-thumb {
+		background: rgba(136, 136, 136, 0.705); 
+		border-radius: 2px 2px 2px 2px;
+		}
+
+		::-webkit-scrollbar-thumb:hover {
+		background: rgba(85, 85, 85, 0.726); 
+		}
+	</style>
+	<body>
+		<!-- <center> -->
+			<div class = "container">
+				<h2>IIT INN ChatBot</h2>
+				<div class="chats">
+					<div id = "chat_window">
+					</div>
+					<div id = "Input">
+						<input id = "Input_box" type=  "text" name = "msg" placeholder = "Enter your text"/>
+					</div>
+				</div>
+			</div>
+		<!-- </center> -->
+	</body>
+	<script>
+		function UpdateChatWindow(){
+			var usr_input = $("#Input_box").val();
+			var new_element1 = '<p class="user chat-text"><span>' + usr_input + "</span></p>";
+			$("#Input_box").val("");
+			$("#chat_window").append(new_element1);
+			document.getElementById("Input").scrollIntoView();
+			$.get("/getres", {user_in : usr_input }).done(
+				function(res) {
+					var new_element2 = '<p class="bot chat-text"><span>' + res + "</span></p>";
+					$("#chat_window").append(new_element2);
+					document.getElementById("Input").scrollIntoView();
+				}
+			);
+		}
+		$("#Input_box").keypress(
+			function(key_press){
+				if (key_press.which == 13){
+					UpdateChatWindow();
+				}
+			}
+		);
+	</script>
+</html>

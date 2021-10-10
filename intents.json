@@ -1,0 +1,43 @@
+{"intents": [
+        {"tag": "greeting",
+         "patterns": ["Hi", "How are you?", "Is anyone there?", "Hello", "Good day", "Hey"],
+         "responses": ["Hello, thanks for visiting! How can I help you?", "Good to see you again!", "Hi there, how can I help you?"]
+        },
+        {"tag": "goodbye",
+         "patterns": ["Bye", "See you later", "Goodbye"],
+         "responses": ["See you later, thanks for visiting!", "Have a nice day!", "Bye! Come back again soon."]
+        },
+        {"tag": "thanks",
+         "patterns": ["Thanks", "Thank you", "That's helpful", "That's great!"],
+         "responses": ["Happy to help!", "Any time!", "My pleasure."]
+        },
+        {"tag": "timings",
+         "patterns": ["What are your timings?", "What are your hours?", "When are you open?", "Are you open today?"],
+         "responses": ["We're open every day 9am-10pm.", "Our hours are 9am-10pm every day."]
+        },
+        {"tag": "features",
+         "patterns": ["What can you do?", "How can you help me?", "What features do you have?" ],
+         "responses": ["You can view the timings and menu of our inn and its specials items, and order speed. You can also check out available payment methods and available media for making your orders."]
+        },
+        {"tag": "payments",
+         "patterns": ["Do you take credit cards?", "Do you accept Google Pay wallet?", "Are you cash only?", "Do you accept PayTM wallet", "Are online wallets accepted?" ],
+         "responses": ["We accept VISA, Mastercard, PayTM, Gpay, and PhonePe.", "We accept most major cards and online wallets."]
+        },
+        {"tag": "media",
+         "patterns": ["How can I place an order?", "How do I order?", "I want to order something"],
+         "responses": ["To place an order, visit iitianinn.co.in or contact us on 1234567890", "Contact us on 1234567890 or visit iitianinn.co.in for placing your order"]
+        },
+        {"tag": "order",
+         "patterns": ["How fast is the order?", "How much time will my order take?"],
+         "responses": ["Your order will take around 30-45 minutes depending on order size and delivery address", "Expect 30-45 minutes for your order"]
+        },
+        {"tag": "menu",
+         "patterns": ["What is the menu?", "What can I order?", "What items are you offering?", "Can you show the menu?" ],
+         "responses": ["Here is the menu:\n1.Cheese Chilli Pizza\n2.Paneer 65\n3.French Toast\n4.Dal Makhani\n5.Chhole Kulche\n6.Virgin Mohito\n7.Chocolate Brownie\n8.Cold Drinks (at MRP)"]
+        },
+        {"tag": "special",
+         "patterns": ["What speciality do you offer?", "What are your specials?"],
+         "responses": ["Our specials for today our Paneer Chingezi, Aloo Bukhara, Tomato Chaat, Lasagna and Mexican Tacos", "Paneer Chingezi, Aloo Bukhara, Tomato Chaat, Lasagna and Mexican Tacos are our specials for today."]
+        }
+   ]
+}
